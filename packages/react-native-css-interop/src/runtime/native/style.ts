@@ -658,7 +658,7 @@ export function upsertStyleSignal(
 }
 
 function printWarnings(name: string, groupedStyleMeta: GroupedTransportStyles) {
-  if (!groupedStyleMeta.warnings) return;
+  if (!groupedStyleMeta.warnings || process.env.SILENCE_NATIVEWIND_WARNING) return;
 
   for (const warning of groupedStyleMeta.warnings) {
     if (process.env.NODE_ENV === "test") {
